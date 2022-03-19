@@ -15,6 +15,11 @@ class RestAPI {
 
         var token = ""
         var userId = ""
+        var firstTimeObj = true
+        var datos = mutableListOf<String>()
+        var datos2 = mutableListOf<String>()
+        var datos3 = mutableListOf<String>()
+        var datos4 = mutableListOf<String>()
     }
 
     var datos = emptyArray<String>();
@@ -22,6 +27,8 @@ class RestAPI {
     var datos3 = emptyArray<String>();
     var datos4 = emptyArray<String>();
     var datosx = emptyArray<String>();
+
+    var firstTime = false
 
     private val client = OkHttpClient.Builder().apply{
         addInterceptor(HttpInterceptor())
@@ -33,6 +40,14 @@ class RestAPI {
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
+
+    fun removeElementFourthDigit(num : Int){
+
+        //en cuatro cifras  - remueve todos los que terminan en 97 entre 3,2 digitos y remueve el 7 en un digito
+
+        RestAPI.datos4.removeAt(num)
+
+    }
 
     fun getMasterAPI() : MasterService{
 
@@ -74,7 +89,8 @@ class RestAPI {
     fun generateDigit(){
 
         for (i in 1..9) {
-            datos+=i.toString()
+//            datos+=i.toString()
+            RestAPI.datos+=i.toString()
             Log.i("response", i.toString())
         }
     }
@@ -83,10 +99,10 @@ class RestAPI {
 
         for (i in 1..99) {
             if(i<10){
-                datos2+="0"+i.toString()
+                RestAPI.datos2+="0"+i.toString()
                 Log.i("response", i.toString())
             }else{
-                datos2+=i.toString()
+                RestAPI.datos2+=i.toString()
                 Log.i("response", i.toString())
 
             }
@@ -97,13 +113,13 @@ class RestAPI {
 
         for (i in 1..999) {
             if(i<10){
-                datos3+="00"+i.toString()
+                RestAPI.datos3+="00"+i.toString()
                 Log.i("response", i.toString())
             }else if(i<100){
-                datos3+="0"+i.toString()
+                RestAPI.datos3+="0"+i.toString()
                 Log.i("response", i.toString())
             }else{
-                datos3+=i.toString()
+                RestAPI.datos3+=i.toString()
                 Log.i("response", i.toString())
             }
         }
@@ -113,16 +129,16 @@ class RestAPI {
 
         for (i in 1..9999) {
             if(i<10){
-                datos4+="000"+i.toString()
+                RestAPI.datos4+="000"+i.toString()
                 Log.i("response", i.toString())
             }else if(i<100){
-                datos4+="00"+i.toString()
+                RestAPI.datos4+="00"+i.toString()
                 Log.i("response", i.toString())
             }else if(i<1000){
-                datos4+="0"+i.toString()
+                RestAPI.datos4+="0"+i.toString()
                 Log.i("response", i.toString())
             }else{
-                datos4+=i.toString()
+                RestAPI.datos4+=i.toString()
                 Log.i("response", i.toString())
             }
         }

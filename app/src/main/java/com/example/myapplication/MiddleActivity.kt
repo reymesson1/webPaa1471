@@ -16,6 +16,7 @@ import retrofit2.Response
 
 class MiddleActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_middle)
@@ -24,6 +25,7 @@ class MiddleActivity : AppCompatActivity() {
 
             var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+
 
         }
 
