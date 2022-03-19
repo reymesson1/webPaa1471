@@ -28,53 +28,58 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var datos = emptyArray<String>();
-        var datos2 = emptyArray<String>();
-        var datos3 = emptyArray<String>();
-        var datos4 = emptyArray<String>();
-        var datosx = emptyArray<String>();
+        restAPI.generateDigit()
+        restAPI.generateTwoDigit()
+        restAPI.generateThreeDigit()
+        restAPI.generateFourthDigit()
 
-        for (i in 1..9) {
-            datos+=i.toString()
-            Log.i("response", i.toString())
-        }
-        for (i in 1..99) {
-            if(i<10){
-                datos2+="0"+i.toString()
-                Log.i("response", i.toString())
-            }else{
-                datos2+=i.toString()
-                Log.i("response", i.toString())
-
-            }
-        }
-        for (i in 1..999) {
-            if(i<10){
-                datos3+="00"+i.toString()
-                Log.i("response", i.toString())
-            }else if(i<100){
-                datos3+="0"+i.toString()
-                Log.i("response", i.toString())
-            }else{
-                datos3+=i.toString()
-                Log.i("response", i.toString())
-            }
-        }
-        for (i in 1..9999) {
-            if(i<10){
-                datos4+="000"+i.toString()
-                Log.i("response", i.toString())
-            }else if(i<100){
-                datos4+="00"+i.toString()
-                Log.i("response", i.toString())
-            }else if(i<1000){
-                datos4+="0"+i.toString()
-                Log.i("response", i.toString())
-            }else{
-                datos4+=i.toString()
-                Log.i("response", i.toString())
-            }
-        }
+//        var datos = emptyArray<String>();
+//        var datos2 = emptyArray<String>();
+//        var datos3 = emptyArray<String>();
+//        var datos4 = emptyArray<String>();
+//        var datosx = emptyArray<String>();
+//
+//        for (i in 1..9) {
+//            datos+=i.toString()
+//            Log.i("response", i.toString())
+//        }
+//        for (i in 1..99) {
+//            if(i<10){
+//                datos2+="0"+i.toString()
+//                Log.i("response", i.toString())
+//            }else{
+//                datos2+=i.toString()
+//                Log.i("response", i.toString())
+//
+//            }
+//        }
+//        for (i in 1..999) {
+//            if(i<10){
+//                datos3+="00"+i.toString()
+//                Log.i("response", i.toString())
+//            }else if(i<100){
+//                datos3+="0"+i.toString()
+//                Log.i("response", i.toString())
+//            }else{
+//                datos3+=i.toString()
+//                Log.i("response", i.toString())
+//            }
+//        }
+//        for (i in 1..9999) {
+//            if(i<10){
+//                datos4+="000"+i.toString()
+//                Log.i("response", i.toString())
+//            }else if(i<100){
+//                datos4+="00"+i.toString()
+//                Log.i("response", i.toString())
+//            }else if(i<1000){
+//                datos4+="0"+i.toString()
+//                Log.i("response", i.toString())
+//            }else{
+//                datos4+=i.toString()
+//                Log.i("response", i.toString())
+//            }
+//        }
 
 
         doAsync {
@@ -85,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
                 val adaptador = ArrayAdapter(this@MainActivity,
                     R.layout.elemento_de_lista,
-                    datos)
+                    restAPI.datos)
                 miLista.adapter = adaptador
 
                 miLista.onItemClickListener =
@@ -119,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 
                 val adaptador2 = ArrayAdapter(this@MainActivity,
                     R.layout.elemento_de_lista,
-                    datos2)
+                    restAPI.datos2)
                 miLista2.adapter = adaptador2
 
                 miLista2.onItemClickListener =
@@ -150,7 +155,7 @@ class MainActivity : AppCompatActivity() {
 
                 val adaptador3 = ArrayAdapter(this@MainActivity,
                     R.layout.elemento_de_lista,
-                    datos3)
+                    restAPI.datos3)
                 miLista3.adapter = adaptador3
 
                 miLista3.onItemClickListener =
@@ -181,7 +186,7 @@ class MainActivity : AppCompatActivity() {
 
                 val adaptador4 = ArrayAdapter(this@MainActivity,
                     R.layout.elemento_de_lista,
-                    datos4)
+                    restAPI.datos4)
                 miLista4.adapter = adaptador4
 
                 miLista4.onItemClickListener =

@@ -17,6 +17,12 @@ class RestAPI {
         var userId = ""
     }
 
+    var datos = emptyArray<String>();
+    var datos2 = emptyArray<String>();
+    var datos3 = emptyArray<String>();
+    var datos4 = emptyArray<String>();
+    var datosx = emptyArray<String>();
+
     private val client = OkHttpClient.Builder().apply{
         addInterceptor(HttpInterceptor())
     }.build()
@@ -63,9 +69,64 @@ class RestAPI {
 
         })
 
-
-
-
     }
+
+    fun generateDigit(){
+
+        for (i in 1..9) {
+            datos+=i.toString()
+            Log.i("response", i.toString())
+        }
+    }
+
+    fun generateTwoDigit(){
+
+        for (i in 1..99) {
+            if(i<10){
+                datos2+="0"+i.toString()
+                Log.i("response", i.toString())
+            }else{
+                datos2+=i.toString()
+                Log.i("response", i.toString())
+
+            }
+        }
+    }
+
+    fun generateThreeDigit(){
+
+        for (i in 1..999) {
+            if(i<10){
+                datos3+="00"+i.toString()
+                Log.i("response", i.toString())
+            }else if(i<100){
+                datos3+="0"+i.toString()
+                Log.i("response", i.toString())
+            }else{
+                datos3+=i.toString()
+                Log.i("response", i.toString())
+            }
+        }
+    }
+
+    fun generateFourthDigit(){
+
+        for (i in 1..9999) {
+            if(i<10){
+                datos4+="000"+i.toString()
+                Log.i("response", i.toString())
+            }else if(i<100){
+                datos4+="00"+i.toString()
+                Log.i("response", i.toString())
+            }else if(i<1000){
+                datos4+="0"+i.toString()
+                Log.i("response", i.toString())
+            }else{
+                datos4+=i.toString()
+                Log.i("response", i.toString())
+            }
+        }
+    }
+
 
 }
