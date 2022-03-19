@@ -30,7 +30,8 @@ class Login : AppCompatActivity() {
                     restAPI.setPostLogin("ag@ag.com","123456789")
 //                    restAPI.setPostLogin(emailTXT.text.toString(),passwordTXT.text.toString())
 
-                    var intent = Intent(this@Login,MainActivity::class.java)
+                    var intent = Intent(this@Login,MiddleActivity::class.java)
+//                    var intent = Intent(this@Login,MainActivity::class.java)
                     startActivity(intent)
 
                 }
