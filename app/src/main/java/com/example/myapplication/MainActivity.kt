@@ -94,11 +94,8 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             id: Long
                         ) {
-                            Toast.makeText(
-                                this@MainActivity,
-                                "Escogido: ${miLista.getItemAtPosition(position)}",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            Log.i("response", "onClicked!")
+                            Toast.makeText(this@MainActivity, "Escogido: ${miLista.getItemAtPosition(position)}", Toast.LENGTH_LONG).show()
                         }
                     }
 
