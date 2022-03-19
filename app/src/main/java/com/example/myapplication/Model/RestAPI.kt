@@ -15,7 +15,20 @@ class RestAPI {
 
         var token = ""
         var userId = ""
+        var firstTimeObj = true
+        var datos = mutableListOf<String>()
+        var datos2 = mutableListOf<String>()
+        var datos3 = mutableListOf<String>()
+        var datos4 = mutableListOf<String>()
     }
+
+    var datos = emptyArray<String>();
+    var datos2 = emptyArray<String>();
+    var datos3 = emptyArray<String>();
+    var datos4 = emptyArray<String>();
+    var datosx = emptyArray<String>();
+
+    var firstTime = false
 
     private val client = OkHttpClient.Builder().apply{
         addInterceptor(HttpInterceptor())
@@ -27,6 +40,19 @@ class RestAPI {
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
+
+    fun removeElementFourthDigit(num : Int){
+        
+        var removeData3 = RestAPI.datos4.get( num).toString().substring(1).toInt()
+        var removeData2 = RestAPI.datos4.get( num).toString().substring(2).toInt()
+        var removeData = RestAPI.datos4.get( num).toString().substring(3).toInt()
+
+        RestAPI.datos4.removeAt(num)
+        RestAPI.datos3.removeAt(removeData3-1)
+        RestAPI.datos2.removeAt(removeData2-1)
+        RestAPI.datos.removeAt(removeData-1)
+
+    }
 
     fun getMasterAPI() : MasterService{
 
@@ -63,9 +89,65 @@ class RestAPI {
 
         })
 
-
-
-
     }
+
+    fun generateDigit(){
+
+        for (i in 1..9) {
+//            datos+=i.toString()
+            RestAPI.datos+=i.toString()
+            Log.i("response", i.toString())
+        }
+    }
+
+    fun generateTwoDigit(){
+
+        for (i in 1..99) {
+            if(i<10){
+                RestAPI.datos2+="0"+i.toString()
+                Log.i("response", i.toString())
+            }else{
+                RestAPI.datos2+=i.toString()
+                Log.i("response", i.toString())
+
+            }
+        }
+    }
+
+    fun generateThreeDigit(){
+
+        for (i in 1..999) {
+            if(i<10){
+                RestAPI.datos3+="00"+i.toString()
+                Log.i("response", i.toString())
+            }else if(i<100){
+                RestAPI.datos3+="0"+i.toString()
+                Log.i("response", i.toString())
+            }else{
+                RestAPI.datos3+=i.toString()
+                Log.i("response", i.toString())
+            }
+        }
+    }
+
+    fun generateFourthDigit(){
+
+        for (i in 1..9999) {
+            if(i<10){
+                RestAPI.datos4+="000"+i.toString()
+                Log.i("response", i.toString())
+            }else if(i<100){
+                RestAPI.datos4+="00"+i.toString()
+                Log.i("response", i.toString())
+            }else if(i<1000){
+                RestAPI.datos4+="0"+i.toString()
+                Log.i("response", i.toString())
+            }else{
+                RestAPI.datos4+=i.toString()
+                Log.i("response", i.toString())
+            }
+        }
+    }
+
 
 }
