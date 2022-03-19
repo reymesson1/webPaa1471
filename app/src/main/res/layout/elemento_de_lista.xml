@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/miTextView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:text="Texto"
+    android:textSize="30sp"
+    android:textStyle="bold"
+    android:theme="@style/MyMaterialTheme"
+    />
+
+<!--<com.google.android.material.chip.Chip-->
+<!--android:id="@+id/chip"-->
+<!--android:text="1233434343"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:theme="@style/MyMaterialTheme"-->
+<!--    />-->
