@@ -42,10 +42,15 @@ class RestAPI {
         .build()
 
     fun removeElementFourthDigit(num : Int){
-
-        //en cuatro cifras  - remueve todos los que terminan en 97 entre 3,2 digitos y remueve el 7 en un digito
+        
+        var removeData3 = RestAPI.datos4.get( num).toString().substring(1).toInt()
+        var removeData2 = RestAPI.datos4.get( num).toString().substring(2).toInt()
+        var removeData = RestAPI.datos4.get( num).toString().substring(3).toInt()
 
         RestAPI.datos4.removeAt(num)
+        RestAPI.datos3.removeAt(removeData3-1)
+        RestAPI.datos2.removeAt(removeData2-1)
+        RestAPI.datos.removeAt(removeData-1)
 
     }
 
