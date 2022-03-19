@@ -18,7 +18,8 @@ class Login : AppCompatActivity() {
 
         btn_login.setOnClickListener {
 
-            restAPI.setPostLogin(emailTXT.text.toString(),passwordTXT.text.toString())
+            restAPI.setPostLogin("ag@ag.com","123456789")
+//            restAPI.setPostLogin(emailTXT.text.toString(),passwordTXT.text.toString())
 
             doAsync {
 
@@ -26,7 +27,8 @@ class Login : AppCompatActivity() {
 
                     Thread.sleep(4000)
 
-                    restAPI.setPostLogin(emailTXT.text.toString(),passwordTXT.text.toString())
+                    restAPI.setPostLogin("ag@ag.com","123456789")
+//                    restAPI.setPostLogin(emailTXT.text.toString(),passwordTXT.text.toString())
 
                     var intent = Intent(this@Login,MainActivity::class.java)
                     startActivity(intent)

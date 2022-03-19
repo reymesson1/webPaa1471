@@ -12,7 +12,6 @@ class ResponseRPEstado {
     var debo : Int = 0
     var base : Int = 0
     var jugados : Array<*> = arrayOf("",null)
-//    var jugados: Array<Array<out Int?>> = arrayOf(arrayOf(1), arrayOf(2), arrayOf(3, null, 4))
     var last_id : Int = 0
     var acumulado : Int = 0
 }

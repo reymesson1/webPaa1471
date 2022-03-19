@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.myapplication.Model.ResponseRPEstado
 import com.example.myapplication.Model.RestAPI
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_item.view.*
 import org.jetbrains.anko.activityUiThread
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
@@ -45,7 +46,23 @@ class MainActivity : AppCompatActivity() {
                 debo.setText(response.body()!!.debo.toString())
                 cupo.setText(response.body()!!.cupo.toString())
 
-//                response.body().
+                response.body()!!.jugados.forEachIndexed  {  index,at->
+
+                    var item = layoutInflater.inflate(R.layout.layout_item, null)
+
+                    item.chip.setText(index.toString())
+
+                    Log.i("response", index.toString())
+                    scContent.addView(item)
+
+                }
+
+                repolla.setText(response.body()!!.id_repolla.toString())
+                ronda.setText(response.body()!!.ronda.toString())
+                acumulado.setText(response.body()!!.acumulado.toString())
+
+
+
 
             }
 
