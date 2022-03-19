@@ -157,15 +157,14 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".7"
-            android:descendantFocusability="blocksDescendants"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
+
             android:numColumns="9"/>
         <GridView
             android:id="@+id/miLista2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
+
             android:numColumns="9"/>
         <GridView
             android:id="@+id/miLista3"

@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.Model.ResponseRPEstado
 import com.example.myapplication.Model.RestAPI
 import kotlinx.android.synthetic.main.activity_main.*
@@ -94,8 +96,24 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             id: Long
                         ) {
-                            Log.i("response", "onClicked!")
-                            Toast.makeText(this@MainActivity, "Escogido: ${miLista.getItemAtPosition(position)}", Toast.LENGTH_LONG).show()
+//                            Log.i("response", "onClicked!")
+//                            Toast.makeText(this@MainActivity, "Escogido: ${miLista.getItemAtPosition(position)}", Toast.LENGTH_LONG).show()
+
+                            var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                            var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                            alertDialog.setView(modal)
+
+                            alertDialog.setTitle("Numero a vender")
+
+                            alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                                Log.i("response", "saved ${miLista.getItemAtPosition(position)} "  )
+                            })
+
+                            alertDialog.show()
+
                         }
                     }
 
@@ -112,11 +130,21 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             id: Long
                         ) {
-                            Toast.makeText(
-                                this@MainActivity,
-                                "Escogido: ${miLista.getItemAtPosition(position)}",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                            var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                            alertDialog.setView(modal)
+
+                            alertDialog.setTitle("Numero a vender")
+
+                            alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                                Log.i("response", "saved ${miLista2.getItemAtPosition(position)} "  )
+//                                Log.i("response", "saved ${miLista} "  )
+                            })
+
+                            alertDialog.show()
                         }
                     }
 
@@ -133,11 +161,21 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             id: Long
                         ) {
-                            Toast.makeText(
-                                this@MainActivity,
-                                "Escogido: ${miLista.getItemAtPosition(position)}",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                            var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                            alertDialog.setView(modal)
+
+                            alertDialog.setTitle("Numero a vender")
+
+                            alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                                Log.i("response", "saved ${miLista3.getItemAtPosition(position)} "  )
+//                                Log.i("response", "saved ${miLista} "  )
+                            })
+
+                            alertDialog.show()
                         }
                     }
 
@@ -154,11 +192,21 @@ class MainActivity : AppCompatActivity() {
                             position: Int,
                             id: Long
                         ) {
-                            Toast.makeText(
-                                this@MainActivity,
-                                "Escogido: ${miLista.getItemAtPosition(position)}",
-                                Toast.LENGTH_LONG
-                            ).show()
+                            var modal = layoutInflater.inflate(R.layout.layout_item_modal, null)
+
+                            var alertDialog = AlertDialog.Builder(this@MainActivity)
+
+                            alertDialog.setView(modal)
+
+                            alertDialog.setTitle("Numero a vender")
+
+                            alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                                Log.i("response", "saved ${miLista4.getItemAtPosition(position)} "  )
+//                                Log.i("response", "saved ${miLista} "  )
+                            })
+
+                            alertDialog.show()
                         }
                     }
 
