@@ -8,12 +8,14 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.Model.ResponseRPEstado
 import com.example.myapplication.Model.RestAPI
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_item.view.*
+import kotlinx.android.synthetic.main.layout_item_modal.*
 import org.jetbrains.anko.activityUiThread
 import org.jetbrains.anko.doAsync
 import retrofit2.Call
@@ -43,16 +45,21 @@ class MainActivity : AppCompatActivity() {
         Log.i("response", "RestAPI.datos " + RestAPI.datos.size.toString())
         Log.i("response", "RestAPI.datos4 " + RestAPI.datos4.size.toString())
 
-        getAdapterDigit()
-        getAdapterTwoDigit()
-        getAdapterThreeDigit()
-        getAdapterFourthDigit()
+
 
         doAsync {
 
             activityUiThread {
 
                 getData()
+
+                Thread.sleep(2000)
+                getAdapterDigit()
+                getAdapterTwoDigit()
+                getAdapterThreeDigit()
+                getAdapterFourthDigit()
+
+
             }
         }
     }
@@ -84,6 +91,14 @@ class MainActivity : AppCompatActivity() {
 
                         Log.i("response", "saved ${miLista4.getItemAtPosition(position)} "  )
                         Log.i("response", "saved ${miLista4.getItemIdAtPosition(position)} "  )
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista4.getItemIdAtPosition(position).toInt(),
+                            4,
+                            telephoneTXT.text.toString(),
+                            nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
                         restAPI.removeElementFourthDigit(miLista4.getItemIdAtPosition(position).toInt())
                         var intent = Intent(this@MainActivity,MiddleActivity::class.java)
                         startActivity(intent)
@@ -120,6 +135,18 @@ class MainActivity : AppCompatActivity() {
 
                     alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
 
+                        restAPI.removeElementThreeDigit(miLista3.getItemIdAtPosition(position).toInt())
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista3.getItemIdAtPosition(position).toInt(),
+                            3,
+                            telephoneTXT.text.toString(),
+                            nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+                        var intent = Intent(this@MainActivity,MiddleActivity::class.java)
+                        startActivity(intent)
+
                         Log.i("response", "saved ${miLista3.getItemAtPosition(position)} "  )
 //                                Log.i("response", "saved ${miLista} "  )
                     })
@@ -154,7 +181,18 @@ class MainActivity : AppCompatActivity() {
 
                     alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
 
-                        Log.i("response", "saved ${miLista2.getItemAtPosition(position)} "  )
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista2.getItemIdAtPosition(position).toInt(),
+                            2,
+                            telephoneTXT.text.toString(),
+                            nameTXT.text.toString(),
+                            "9",
+                            "1"
+                        )
+                        restAPI.removeElementTwoDigit(miLista2.getItemIdAtPosition(position).toInt())
+                        var intent = Intent(this@MainActivity,MiddleActivity::class.java)
+                        startActivity(intent)
+//                        Log.i("response", "saved ${miLista2.getItemAtPosition(position)} "  )
 //                                Log.i("response", "saved ${miLista} "  )
                     })
 
@@ -165,6 +203,9 @@ class MainActivity : AppCompatActivity() {
 
 
     fun getAdapterDigit(){
+
+        val nameTXTLocal = findViewById<EditText>(R.id.nameTXT)
+        val telephoneTXTLocal = findViewById<EditText>(R.id.telephoneTXT)
 
         val adaptador = ArrayAdapter(this@MainActivity,
             R.layout.elemento_de_lista,
@@ -192,6 +233,26 @@ class MainActivity : AppCompatActivity() {
 
                     alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
 
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista.getItemIdAtPosition(position).toInt(),
+                            1,
+                            "8098443270",
+                            "test",
+                            "9",
+                            "1"
+                        )
+                        restAPI.setPostSendComprarUnoAPI(
+                            miLista.getItemIdAtPosition(position).toInt(),
+                            1,
+                            telephoneTXTLocal.text.toString(),
+                            nameTXTLocal.text.toString(),
+                            "9",
+                            "1"
+                        )
+
+                        restAPI.removeElementOneDigit(miLista.getItemIdAtPosition(position).toInt())
+                        var intent = Intent(this@MainActivity,MiddleActivity::class.java)
+                        startActivity(intent)
                         Log.i("response", "saved ${miLista.getItemAtPosition(position)} "  )
                     })
 
