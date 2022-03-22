@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.myapplication.Model.ResponseRPEstado
+import com.example.myapplication.Model.ResponseRPEstadoArray
 import com.example.myapplication.Model.RestAPI
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_item.view.*
@@ -58,7 +59,6 @@ class MainActivity : AppCompatActivity() {
                 getAdapterTwoDigit()
                 getAdapterThreeDigit()
                 getAdapterFourthDigit()
-
 
             }
         }
@@ -278,6 +278,12 @@ class MainActivity : AppCompatActivity() {
                 debo.setText(response.body()!!.debo.toString())
                 cupo.setText(response.body()!!.cupo.toString())
 
+                Log.i("response", response.body()!!.jugados[0].toString())
+                Log.i("response", "Jugados array size: "+ response.body()!!.jugados.size.toString())
+
+                loadingJugados(response.body()!!.jugados)
+
+
                 repolla.setText(response.body()!!.id_repolla.toString())
                 ronda.setText(response.body()!!.ronda.toString())
                 acumulado.setText(response.body()!!.acumulado.toString())
@@ -293,6 +299,115 @@ class MainActivity : AppCompatActivity() {
 
 
         })
+
+
+    }
+
+    fun loadingJugados(jugados : ArrayList<*> ){
+
+
+//              restAPI.removeElementFourthDigit(9706)
+//            restAPI.removeElementFourthDigit(9998)
+            restAPI.removeElementThreeDigit(125)
+//            restAPI.removeElementThreeDigit(247)
+//            restAPI.removeElementThreeDigit(177)
+//            restAPI.removeElementThreeDigit(141)
+//            restAPI.removeElementThreeDigit(151)
+//            restAPI.removeElementThreeDigit(217)
+//            restAPI.removeElementThreeDigit(131)
+//            restAPI.removeElementOneDigit(8)
+//            restAPI.removeElementOneDigit(6)
+//            restAPI.removeElementOneDigit(0)
+//            restAPI.removeElementThreeDigit(969)
+//            restAPI.removeElementThreeDigit(307)
+//            restAPI.removeElementThreeDigit(225)
+//            restAPI.removeElementFourthDigit(2999)
+//            restAPI.removeElementFourthDigit(1151)
+//            restAPI.removeElementFourthDigit(6141)
+//            restAPI.removeElementFourthDigit(4131)
+//            restAPI.removeElementFourthDigit(2125)
+//            restAPI.removeElementFourthDigit(9997)
+//            restAPI.removeElementOneDigit(4)
+//            restAPI.removeElementThreeDigit(361)
+//            restAPI.removeElementFourthDigit(1361)
+//            restAPI.removeElementThreeDigit(136)
+//            restAPI.removeElementThreeDigit(124)
+//            restAPI.removeElementThreeDigit(124)
+//            restAPI.removeElementThreeDigit(234)
+//            restAPI.removeElementThreeDigit(235)
+
+        for(jugado in jugados){
+
+            var arrStr = jugado.toString().split(",")
+
+            var firstOne =  arrStr[0].substring(1,2).toInt()
+            var firstTwo =  arrStr[1].substring(1,5).split("]")
+            var secondTwo = firstTwo[0].split(".")
+            Log.i("response", "Jugados Final: "+ secondTwo[0].toString())
+
+
+//            if(secondTwo[0].length==1 && secondTwo[0].toInt()>0){
+//                Log.i("response", "Jugados Final II: "+ secondTwo[0].toString())
+//                restAPI.removeElementOneDigit(secondTwo[0].toInt()-1)
+//            }
+//            if(secondTwo[0].length==2 && secondTwo[0].toInt()>0){
+//                Log.i("response", "Jugados Final II: "+ secondTwo[0].toString())
+//                restAPI.removeElementTwoDigit (secondTwo[0].toInt()-1)
+//            }
+//            if(secondTwo[0].length==3 && secondTwo[0].toInt()>0){
+//                Log.i("response", "Jugados Final II: "+ secondTwo[0].toString())
+//                restAPI.removeElementTwoDigit (secondTwo[0].toInt()-1)
+//            }
+//            if(secondTwo[0].length==2){
+//                restAPI.removeElementTwoDigit(secondTwo[0].toInt()-1)
+//            }
+//            if(secondTwo[0].length==3){
+//                restAPI.removeElementThreeDigit(secondTwo[0].toInt()-1)
+//            }
+//            if(secondTwo[0].length==4){
+//                restAPI.removeElementFourthDigit( secondTwo[0].toInt()-1)
+//            }
+
+
+//            if(secondTwo[0].toInt()<9990){
+//                restAPI.removeElementFourthDigit(secondTwo[0].toInt()-1)
+//            }
+//            restAPI.removeElementFourthDigit(secondTwo[0].toInt()-2)
+//            if(firstOne==4){
+//                Log.i("response", "Jugados first: "+ jugado.toString())
+////                var firstTwo =  arrStr[1].substring(1,5).toInt()
+////                Log.i("response", "Jugados second: "+ firstTwo)
+//
+////                restAPI.removeElementFourthDigit(firstTwo)
+//            }
+
+
+        }
+
+        Log.i("response", "Jugados first: "+ jugados[0].toString())
+
+        var arrStr = jugados[0].toString().split(",")
+
+        Log.i("response", "Jugados first: "+ arrStr[0].substring(1,2))
+        Log.i("response", "Jugados second: "+ arrStr[1].substring(1,5))
+
+
+        restAPI.removeElementFourthDigit(1705)
+
+    //
+//        for(jugado in jugados){
+//        for(jugado in jugados){
+//
+//            Log.i("response", jugado.toString())
+//            Log.i("response", "Jugados array size: "+ jugados.size.toString())
+//            Log.i("response", "cifras: "+ jugado.toString())
+//            Log.i("response", "valor: "+ jugado.toString())
+//            Log.i("response", "Jugados array size: "+ jugados.size.toString())
+//
+//
+//        }
+
+
 
 
     }
