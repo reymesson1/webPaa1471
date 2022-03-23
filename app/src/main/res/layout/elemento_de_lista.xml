@@ -12,10 +12,3 @@
     android:background="@drawable/ic_circle"
     />
 
-<!--<com.google.android.material.chip.Chip-->
-<!--android:id="@+id/chip"-->
-<!--android:text="1233434343"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--android:theme="@style/MyMaterialTheme"-->
-<!--    />-->
