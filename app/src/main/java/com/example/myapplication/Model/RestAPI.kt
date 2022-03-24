@@ -86,10 +86,35 @@ class RestAPI {
         var removeData2 = RestAPI.datos4.get( num).toString().substring(2).toInt()
         var removeData = RestAPI.datos4.get( num).toString().substring(3).toInt()
 
-        RestAPI.datos4.removeAt(num)
-        RestAPI.datos3.removeAt(removeData3-1)
-        RestAPI.datos2.removeAt(removeData2-1)
-        RestAPI.datos.removeAt(removeData-1)
+        if(num>0&&num<=9) {
+//            Log.i("response", (miLista4.getItemIdAtPosition(position) + 1).toString())
+            RestAPI.datos4.set(num,"") //0009
+            RestAPI.datos3.set(num,"") //009
+            RestAPI.datos2.set(num,"") //09
+            RestAPI.datos.set(num-1,"") //9
+
+        }else if(num>9&&num<99) {
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+            RestAPI.datos4.set(num,"")
+            RestAPI.datos3.set(num,"")
+            RestAPI.datos2.set(num,"")
+            RestAPI.datos.set(num.toString().substring(1).toInt()-1,"")
+
+
+        }else if(num>99&&num<9999) {
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+            Log.i("response",num.toString().substring(2))
+            Log.i("response",num.toString().substring(3))
+
+
+            RestAPI.datos4.set(num-1,"")
+            RestAPI.datos3.set(num.toString().substring(1).toInt()-1,"")
+            RestAPI.datos2.set(num.toString().substring(2).toInt()-1,"")
+            RestAPI.datos.set(num.toString().substring(3).toInt()-1,"")
+        }
+
 
     }
 
@@ -140,10 +165,14 @@ class RestAPI {
     fun removeElementOneDigit(num : Int){
 
 //        var removeData3 = RestAPI.datos2.get( num).toString().substring(1).toInt()
-        RestAPI.datos.removeAt(num)
-        RestAPI.datos2.removeAt(num)
-        RestAPI.datos3.removeAt(num)
-        RestAPI.datos4.removeAt((num))
+//        RestAPI.datos.removeAt(num)
+//        RestAPI.datos2.removeAt(num)
+//        RestAPI.datos3.removeAt(num)
+//        RestAPI.datos4.removeAt((num))
+        RestAPI.datos.set(num,"")
+        RestAPI.datos2.set(num,"")
+        RestAPI.datos3.set(num,"")
+        RestAPI.datos4.set(num,"")
 
         for(i in 1..9){
             var sum = i * 9
@@ -282,7 +311,7 @@ class RestAPI {
         for (i in 1..9) {
 //            datos+=i.toString()
             RestAPI.datos+=i.toString()
-            Log.i("response", i.toString())
+//            Log.i("response", i.toString())
         }
     }
 
@@ -291,10 +320,10 @@ class RestAPI {
         for (i in 1..99) {
             if(i<10){
                 RestAPI.datos2+="0"+i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }else{
                 RestAPI.datos2+=i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
 
             }
         }
@@ -305,13 +334,13 @@ class RestAPI {
         for (i in 1..999) {
             if(i<10){
                 RestAPI.datos3+="00"+i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }else if(i<100){
                 RestAPI.datos3+="0"+i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }else{
                 RestAPI.datos3+=i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }
         }
     }
@@ -321,16 +350,16 @@ class RestAPI {
         for (i in 1..9999) {
             if(i<10){
                 RestAPI.datos4+="000"+i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }else if(i<100){
                 RestAPI.datos4+="00"+i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }else if(i<1000){
                 RestAPI.datos4+="0"+i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }else{
                 RestAPI.datos4+=i.toString()
-                Log.i("response", i.toString())
+//                Log.i("response", i.toString())
             }
         }
     }

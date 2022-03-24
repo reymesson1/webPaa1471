@@ -91,18 +91,11 @@ class MainActivity : AppCompatActivity() {
 
                         Log.i("response", "saved ${miLista4.getItemAtPosition(position)} "  )
                         Log.i("response", "saved ${miLista4.getItemIdAtPosition(position)} "  )
-                        restAPI.setPostSendComprarUnoAPI(
-                            miLista4.getItemIdAtPosition(position).toInt(),
-                            4,
-                            telephoneTXT.text.toString(),
-                            nameTXT.text.toString(),
-                            "9",
-                            "1"
-                        )
+
                         restAPI.removeElementFourthDigit(miLista4.getItemIdAtPosition(position).toInt())
                         var intent = Intent(this@MainActivity,MiddleActivity::class.java)
                         startActivity(intent)
-//                                Log.i("response", "saved ${miLista} "  )
+
                     })
 
                     alertDialog.show()
@@ -233,22 +226,22 @@ class MainActivity : AppCompatActivity() {
 
                     alertDialog.setPositiveButton("Confirmar venta", DialogInterface.OnClickListener { dialogInterface, i ->
 
-                        restAPI.setPostSendComprarUnoAPI(
-                            miLista.getItemIdAtPosition(position).toInt(),
-                            1,
-                            "8098443270",
-                            "test",
-                            "9",
-                            "1"
-                        )
-                        restAPI.setPostSendComprarUnoAPI(
-                            miLista.getItemIdAtPosition(position).toInt(),
-                            1,
-                            telephoneTXTLocal.text.toString(),
-                            nameTXTLocal.text.toString(),
-                            "9",
-                            "1"
-                        )
+//                        restAPI.setPostSendComprarUnoAPI(
+//                            miLista.getItemIdAtPosition(position).toInt(),
+//                            1,
+//                            "8098443270",
+//                            "test",
+//                            "9",
+//                            "1"
+//                        )
+//                        restAPI.setPostSendComprarUnoAPI(
+//                            miLista.getItemIdAtPosition(position).toInt(),
+//                            1,
+//                            telephoneTXTLocal.text.toString(),
+//                            nameTXTLocal.text.toString(),
+//                            "9",
+//                            "1"
+//                        )
 
                         restAPI.removeElementOneDigit(miLista.getItemIdAtPosition(position).toInt())
                         var intent = Intent(this@MainActivity,MiddleActivity::class.java)
@@ -306,9 +299,9 @@ class MainActivity : AppCompatActivity() {
     fun loadingJugados(jugados : ArrayList<*> ){
 
 
-//              restAPI.removeElementFourthDigit(9706)
+              restAPI.removeElementFourthDigit(9706)
 //            restAPI.removeElementFourthDigit(9998)
-            restAPI.removeElementThreeDigit(125)
+//            restAPI.removeElementThreeDigit(125)
 //            restAPI.removeElementThreeDigit(247)
 //            restAPI.removeElementThreeDigit(177)
 //            restAPI.removeElementThreeDigit(141)
@@ -343,7 +336,21 @@ class MainActivity : AppCompatActivity() {
             var firstOne =  arrStr[0].substring(1,2).toInt()
             var firstTwo =  arrStr[1].substring(1,5).split("]")
             var secondTwo = firstTwo[0].split(".")
-            Log.i("response", "Jugados Final: "+ secondTwo[0].toString())
+
+//            Log.i("response", "Jugados First Final: "+ jugado.toString())
+//            Log.i("response", "Jugados First Final: "+ firstOne.toString())
+//            Log.i("response", "Jugados First Final: "+ secondTwo[0].toString())
+
+            if(firstOne.toInt()==4){
+                Log.i("response", "Jugados SecondFinal: "+ secondTwo[0].toString())
+//                restAPI.removeElementFourthDigit(secondTwo[0].toInt())
+//                restAPI.removeElementFourthDigit(9706)
+
+            }
+//            if(firstTwo[0]=="4.0"){
+//                Log.i("response", "Jugados SecondFinal: "+ secondTwo[0].toString())
+//                restAPI.removeElementFourthDigit(secondTwo[0].toInt())
+//            }
 
 
 //            if(secondTwo[0].length==1 && secondTwo[0].toInt()>0){
@@ -384,15 +391,15 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        Log.i("response", "Jugados first: "+ jugados[0].toString())
+//        Log.i("response", "Jugados first: "+ jugados[0].toString())
 
         var arrStr = jugados[0].toString().split(",")
 
-        Log.i("response", "Jugados first: "+ arrStr[0].substring(1,2))
-        Log.i("response", "Jugados second: "+ arrStr[1].substring(1,5))
+//        Log.i("response", "Jugados first: "+ arrStr[0].substring(1,2))
+//        Log.i("response", "Jugados second: "+ arrStr[1].substring(1,5))
 
 
-        restAPI.removeElementFourthDigit(1705)
+//        restAPI.removeElementFourthDigit(1705)
 
     //
 //        for(jugado in jugados){
