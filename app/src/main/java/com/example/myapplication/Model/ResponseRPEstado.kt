@@ -11,7 +11,8 @@ class ResponseRPEstado {
     var ronda : Int = 0
     var debo : Int = 0
     var base : Int = 0
-    var jugados : Array<*> = arrayOf("",null)
+    var jugados : ArrayList<*> = arrayListOf("",null)
+//    var jugados : ArrayList<ArrayList<ResponseRPEstadoArray>> = arrayListOf()
     var last_id : Int = 0
     var acumulado : Int = 0
 }

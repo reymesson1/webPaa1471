@@ -16,6 +16,7 @@ import retrofit2.Response
 
 class MiddleActivity : AppCompatActivity() {
 
+    var restAPI = RestAPI()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
