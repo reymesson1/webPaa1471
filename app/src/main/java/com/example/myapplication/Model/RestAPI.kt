@@ -93,7 +93,7 @@ class RestAPI {
             RestAPI.datos2.set(num,"") //09
             RestAPI.datos.set(num-1,"") //9
 
-        }else if(num>9&&num<99) {
+        }else if(num>9&&num<=99) {
             Log.i("response",num.toString())
             Log.i("response",num.toString().substring(1))
             RestAPI.datos4.set(num,"")
@@ -102,7 +102,19 @@ class RestAPI {
             RestAPI.datos.set(num.toString().substring(1).toInt()-1,"")
 
 
-        }else if(num>99&&num<9999) {
+        }else if(num>99&&num<=999) { //aqui esta llegand 125 -> 25 -> 5 solo tre digitos
+            Log.i("response",num.toString())
+            Log.i("response",num.toString().substring(1))
+            Log.i("response",num.toString().substring(2))
+            Log.i("response",num.toString().substring(3))
+
+
+            RestAPI.datos4.set(num-1,"")
+            RestAPI.datos3.set(num-1,"")
+            RestAPI.datos2.set(num.toString().substring(1).toInt()-1,"")
+            RestAPI.datos.set(num.toString().substring(2).toInt()-1,"")
+            Log.i("response", "aqui "+ num.toString().substring(2))
+        }else if(num>999&&num<=9999) {
             Log.i("response",num.toString())
             Log.i("response",num.toString().substring(1))
             Log.i("response",num.toString().substring(2))
